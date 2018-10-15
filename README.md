@@ -4,24 +4,26 @@ This is an app that practices concepts from Redux, and Auth0. You will notice th
 
 ## Introduction
 
-This application will pull random user data from the [Random User API](https://randomuser.me/). React will simply display the user data and provide the following basic features:
+This application will allow users to create a friends list with with calls made to the [Random User API](https://randomuser.me/) via an Express server. The server is only being used to implement restricted API calls with Auth0. React will simply display the user data and provide the following basic features:
 
 - [ ] Sort by username (redux)
 - [ ] Filter by gender, and state (redux)
-- [ ] Remove users from list (redux)
-- [ ] Add users to list (redux)
+- [ ] Remove friends from list (redux)
+- [ ] Add friends to list (redux)
 - [ ] Signup as a new user (auth0)
 - [ ] Login to user account (auth0)
 
 ## Redux
 
-Redux will manage the global state of our basic application.
+Redux will manage the global state of our application via the store.js file.
 
 ### Actions
 
 Actions are simply "payloads of information" that send data from the app to the redux store. These are sent to the store via `store.dispatch()` if you are following the basic Redux pattern.
 
 ### Action Creators
+
+Action Creators are pure functions that return actions.
 
 ### Reducers
 
