@@ -3,14 +3,14 @@ let users = [];
 require('dotenv').config();
 const express = require('express'),
   axios = require('axios'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  cors = require('cors');
 
 const app = express();
 const { SERVER_PORT } = process.env;
 
 app.use(bodyParser.json());
-
-console.log(users.length);
+app.use(cors());
 
 // fetch 20 users from API, once
 app.use(async (req, res, next) => {
@@ -20,7 +20,6 @@ app.use(async (req, res, next) => {
         'https://randomuser.me/api/?nat=us&results=20&inc=gender,picture,location,name,email,dob'
       )
       .then((axiosRes) => {
-        // console.log(axiosRes.data.results);
         users.push(axiosRes.data.results);
       })
       .catch((err) => {
@@ -31,14 +30,12 @@ app.use(async (req, res, next) => {
   next();
 });
 
-console.log(users);
-
 // PUBLIC ENDPOINTS
 
 // fetch users stored locally
 app.get('/api/users', (req, res) => {
   try {
-    res.send(users).status(200);
+    res.status(200).send(users);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
