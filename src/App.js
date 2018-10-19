@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'reactstrap';
 
 import { fetchPersonList } from './redux/actions/personListActions';
 
+import FilterContainer from './views/FilterContainer';
 import ListContainer from './views/ListContainer';
 
 class App extends Component {
@@ -14,7 +15,18 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <Row>
+        <Row style={{ margin: '42px 0px' }}>
+          <Col
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center'
+            }}
+          >
+            <FilterContainer />
+          </Col>
+        </Row>
+        <Row style={{ margin: '42px 0px' }}>
           <Col
             style={{
               display: 'flex',

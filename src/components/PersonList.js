@@ -27,6 +27,7 @@ const PersonList = (props) => {
                 type={props.type}
               />
             );
+          else return null;
         });
       default:
         return null;

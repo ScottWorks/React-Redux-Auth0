@@ -1,9 +1,8 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
+import filterReducer from './filterReducer';
 import personListReducer from './personListReducer';
 
-const rootReducer = personListReducer;
+// const rootReducer = personListReducer;
 
-// const rootReducer = combineReducers({ personListReducer });
-
-export default rootReducer;
+export default combineReducers({ filterReducer, personListReducer });

@@ -7,8 +7,8 @@ This is an app that practices concepts from Redux, and Auth0. You will notice th
 This application will allow users to create a friends list with with calls made to the [Random User API](https://randomuser.me/) via an Express server. The server is only being used to implement restricted API calls with Auth0. React will simply display the user data and provide the following basic features:
 
 - [ ] Filter by gender, and state (redux)
-- [ ] Remove friends from list (redux)
-- [ ] Add friends to list (redux)
+- [x] Remove friends from list (redux)
+- [x] Add friends to list (redux)
 - [ ] Signup as a new user (auth0)
 - [ ] Login to user account (auth0)
 
@@ -39,18 +39,14 @@ Action Creators are pure functions that return actions.
 - ListContainer ...displays potential friends
   - `users` ...array of users with shape of `{id, user_data, isFriend}`
   - `onUserClick(id: number)` ...callback to invoke when user is clicked
-- FriendsContainer ...displays friends
-  - `friends` ...array of friends with shape of `{id, user_data, isFriend}`
-  - `onUserClick(id: number)` ...callback to invoke when user is clicked
-- Person ...a person that is displayed in either the user or friend lists.
+- PersonCard ...a person that is displayed in either the user or friend lists.
   - `user_data: Object` ...data that will be displayed
   - `isFriend: Boolean` ...disables add friend button in User List if true.
-- FilterLink ...a link with a callback
+- FilterContainer ...a link with a callback
   - `onClick()` ...is a callback to invoke when the link is clicked.
 
 #### Components
 
-- FriendList ...displays users based on current filter, renders FriendList
-- PersonList ...displays users based on current filter, renders PersonList
-- FilterSelection ...gets current filter and renders a Link
+- PersonList ...displays people based on current filter, renders both user and friends lists.
+- Filter ...gets current filter and renders a Link
   - `filter: string` ...current state of the filter

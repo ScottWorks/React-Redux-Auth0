@@ -1,14 +1,10 @@
-import {
-  BY_GENDER,
-  BY_STATE,
-  BY_FRIENDED,
-  SET_FILTER
-} from './personListActions';
+import { SET_FILTER } from './actionTypes';
 
 export const filters = {
-  BY_GENDER,
-  BY_STATE,
-  BY_FRIENDED
+  BY_GENDER: 'Gender',
+  BY_STATE: 'State',
+  BY_FRIENDED: 'Strangers',
+  SHOW_ALL: 'Show All'
 };
 
 export const setFilter = (filter) => ({

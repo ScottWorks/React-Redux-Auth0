@@ -10,7 +10,7 @@ const ListContainer = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  personList: state.personList
+  personList: state.personListReducer.personList
 });
 
 const mapDispatchToProps = (dispatch) => ({
