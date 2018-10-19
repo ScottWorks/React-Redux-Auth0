@@ -1,18 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Filter from '../components/Filter';
 
-import { filters } from '../redux/actions/filterAction';
+import { filters, setFilter } from '../redux/actions/filterAction';
 
-const FilterContainer = () => {
+const FilterContainer = (props) => {
   let propArray = [];
   for (let property in filters) {
-    propArray.push(filters[property]);
+    propArray.push({ [property]: filters[property] });
   }
 
   return propArray.map((elem, i) => {
-    return <Filter key={i} property={elem} />;
+    return <Filter {...props} key={i} property={elem} />;
   });
 };
 
-export default FilterContainer;
+const mapDispatchToProps = (dispatch) => ({
+  setFilter: (filter) => dispatch(setFilter(filter))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(FilterContainer);

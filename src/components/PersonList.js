@@ -6,7 +6,7 @@ const PersonList = (props) => {
   if (props.personList) {
     switch (props.type) {
       case 'USERS':
-        return props.personList.map((elem, i) => {
+        return props.filteredPersonList.map((elem, i) => {
           return (
             <PersonCard
               {...elem}
