@@ -3,7 +3,7 @@ import {
   BY_STATE,
   BY_FRIENDED,
   SET_FILTER
-} from './personListAction';
+} from './personListActions';
 
 export const filters = {
   BY_GENDER,

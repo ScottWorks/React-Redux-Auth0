@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_PERSONLIST, LIST_SELECT } from './actionTypes';
+import { FETCH_PERSONLIST, TOGGLE_FRIEND } from './actionTypes';
 
 let nextPersonId = 0;
 
@@ -21,13 +21,7 @@ export const fetchPersonList = () => {
   };
 };
 
-// export const listSelect = (type) => ({
-//   type: LIST_SELECT,
-//   payload: type
-// });
-
-export const addFriend = (personList) => ({
-  // const personList = personList.filter((elem) => elem.isFriend);
-  type: 'ADD_FRIEND',
-  payload: personList
+export const toggleFriend = (id) => ({
+  type: TOGGLE_FRIEND,
+  payload: id
 });

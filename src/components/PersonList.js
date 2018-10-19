@@ -3,24 +3,37 @@ import React from 'react';
 import PersonCard from './PersonCard';
 
 const PersonList = (props) => {
-  switch (props.type) {
-    case 'USERS':
-      return props.personList
-        ? props.personList.map((elem, i) => {
-            return <PersonCard {...elem} key={i} type={props.type} />;
-          })
-        : null;
-    case 'FRIENDS':
-      return props.personList
-        ? props.personList.filter((elem, i) => {
-            return elem.isFriend ? (
-              <PersonCard {...elem} key={i} type={props.type} />
-            ) : null;
-          })
-        : null;
-    default:
-      return null;
+  if (props.personList) {
+    switch (props.type) {
+      case 'USERS':
+        return props.personList.map((elem, i) => {
+          return (
+            <PersonCard
+              {...elem}
+              key={i}
+              toggleFriend={() => props.toggleFriend(elem.id)}
+              type={props.type}
+            />
+          );
+        });
+      case 'FRIENDS':
+        return props.personList.map((elem, i) => {
+          if (elem.isFriend)
+            return (
+              <PersonCard
+                {...elem}
+                key={i}
+                toggleFriend={() => props.toggleFriend(elem.id)}
+                type={props.type}
+              />
+            );
+        });
+      default:
+        return null;
+    }
   }
+
+  return null;
 };
 
 export default PersonList;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';
 
-import { fetchPersonList } from './redux/actions/personListAction';
+import { fetchPersonList } from './redux/actions/personListActions';
 
 import ListContainer from './views/ListContainer';
 

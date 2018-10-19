@@ -13,6 +13,8 @@ const PersonCard = (props) => {
   const last = props.data.name.last;
   const state = props.data.location.state;
   const photo = props.data.picture.large;
+
+  const id = props.id;
   const isFriend = props.isFriend;
   const type = props.type;
 
@@ -30,7 +32,7 @@ const PersonCard = (props) => {
           {isFriend ? (
             <Button disabled>Add Friend</Button>
           ) : (
-            <Button>Add Friend</Button>
+            <Button onClick={props.toggleFriend}>Add Friend</Button>
           )}
         </Card>
       );
@@ -45,7 +47,7 @@ const PersonCard = (props) => {
             <CardSubtitle>{state}</CardSubtitle>
           </CardBody>
           <CardImg src={photo} />
-          <Button>Remove Friend</Button>
+          <Button onClick={() => props.toggleFriend(id)}>Remove Friend</Button>
         </Card>
       );
     default:

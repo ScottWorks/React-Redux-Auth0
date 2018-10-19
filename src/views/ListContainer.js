@@ -1,16 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { toggleFriend } from '../redux/actions/personListActions';
+
 import PersonList from '../components/PersonList';
 
-class ListContainer extends React.Component {
-  render() {
-    return <PersonList {...this.props} />;
-  }
-}
+const ListContainer = (props) => {
+  return <PersonList {...props} />;
+};
 
 const mapStateToProps = (state) => ({
   personList: state.personList
 });
 
-export default connect(mapStateToProps)(ListContainer);
+const mapDispatchToProps = (dispatch) => ({
+  toggleFriend: (id) => dispatch(toggleFriend(id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ListContainer);
