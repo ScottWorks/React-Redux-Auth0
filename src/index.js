@@ -5,6 +5,7 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import rootReducer from './redux/reducers/index.js';
 

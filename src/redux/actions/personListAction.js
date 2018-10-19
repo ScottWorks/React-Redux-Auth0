@@ -1,19 +1,8 @@
 import axios from 'axios';
 
-import { FETCH_PERSONLIST } from '../actions/actionTypes';
+import { FETCH_PERSONLIST, LIST_SELECT } from './actionTypes';
 
 let nextPersonId = 0;
-
-export const filters = {
-  BY_GENDER: 'BY_GENDER',
-  BY_STATE: 'BY_STATE',
-  BY_FRIENDED: 'BY_FRIENDED'
-};
-
-export const setFilter = (filter) => ({
-  type: 'SET_FILTER',
-  payload: filter
-});
 
 export const fetchPersonList = () => {
   const personList = axios.get('/api/users').then((axiosRes) => {
@@ -31,6 +20,11 @@ export const fetchPersonList = () => {
     payload: personList
   };
 };
+
+// export const listSelect = (type) => ({
+//   type: LIST_SELECT,
+//   payload: type
+// });
 
 export const addFriend = (personList) => ({
   // const personList = personList.filter((elem) => elem.isFriend);

@@ -11,7 +11,7 @@ const initialState = {
   error: undefined
 };
 
-const personReducer = (state = initialState, action) => {
+const personListReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PERSONLIST + _FULFILLED:
       return {
@@ -33,4 +33,4 @@ const personReducer = (state = initialState, action) => {
   }
 };
 
-export default personReducer;
+export default personListReducer;

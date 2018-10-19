@@ -36,10 +36,10 @@ Action Creators are pure functions that return actions.
 
 #### Views
 
-- User List ...displays potential friends
+- ListContainer ...displays potential friends
   - `users` ...array of users with shape of `{id, user_data, isFriend}`
   - `onUserClick(id: number)` ...callback to invoke when user is clicked
-- Friend List ...displays friends
+- FriendsContainer ...displays friends
   - `friends` ...array of friends with shape of `{id, user_data, isFriend}`
   - `onUserClick(id: number)` ...callback to invoke when user is clicked
 - Person ...a person that is displayed in either the user or friend lists.
@@ -50,6 +50,7 @@ Action Creators are pure functions that return actions.
 
 #### Components
 
-- FilteredUserList ...displays users based on current filter, renders UserList
+- FriendList ...displays users based on current filter, renders FriendList
+- PersonList ...displays users based on current filter, renders PersonList
 - FilterSelection ...gets current filter and renders a Link
   - `filter: string` ...current state of the filter
